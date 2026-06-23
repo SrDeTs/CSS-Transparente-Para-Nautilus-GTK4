@@ -335,8 +335,10 @@ dialog.preferences row + row {
 }
 
 /* ---------- 4) Diálogos pequenos: Lixeira, Nova pasta, renomear, avisos ---------- */
+/* AdwAlertDialog (lixeira) usa AdwDialog → CSS node: "dialog" (sem child "contents") */
+/* GtkDialog antigo usa: dialog > contents */
+/* Aplicamos o vidro diretamente no nó dialog */
 window.dialog,
-dialog,
 messagedialog,
 window.messagedialog,
 .nautilus-window dialog,
@@ -346,33 +348,46 @@ window.messagedialog,
     background-image: none;
 }
 
-/* O vidro fica só na caixa do diálogo, não na tela inteira. */
+/* AdwAlertDialog e AdwDialog: vidro no root node */
+dialog:not(.preferences) {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.55);
+    background-image: linear-gradient(
+        to bottom,
+        alpha(@window_fg_color, 0.06),
+        alpha(@window_bg_color, 0.04)
+    );
+    border: 1px solid alpha(@window_fg_color, 0.15);
+    border-radius: 18px;
+    box-shadow: 0 16px 46px rgba(0, 0, 0, 0.30);
+}
+
+/* GtkDialog antigo: vidro no child contents */
 window.dialog > contents,
-dialog:not(.preferences) > contents,
 messagedialog > contents,
 window.messagedialog > contents,
 .nautilus-window dialog > contents,
 .nautilus-window messagedialog > contents {
     background: transparent;
-    background-color: alpha(@window_bg_color, 0.18);
+    background-color: alpha(@window_bg_color, 0.55);
     background-image: linear-gradient(
         to bottom,
-        alpha(@window_fg_color, 0.04),
-        alpha(@window_bg_color, 0.025)
+        alpha(@window_fg_color, 0.06),
+        alpha(@window_bg_color, 0.04)
     );
-    border: 1px solid alpha(@window_fg_color, 0.10);
+    border: 1px solid alpha(@window_fg_color, 0.15);
     border-radius: 18px;
     box-shadow: 0 16px 46px rgba(0, 0, 0, 0.30);
 }
 
-/* Interior dos diálogos sem blocos opacos extras. */
-dialog:not(.preferences) box,
-dialog:not(.preferences) grid,
-dialog:not(.preferences) centerbox,
-dialog:not(.preferences) stack,
-dialog:not(.preferences) clamp,
-dialog:not(.preferences) viewport,
-dialog:not(.preferences) scrolledwindow,
+/* Interior dos diálogos sem blocos opacos extras (exceto AdwAlertDialog que já usa o root) */
+window.dialog box,
+window.dialog grid,
+window.dialog centerbox,
+window.dialog stack,
+window.dialog clamp,
+window.dialog viewport,
+window.dialog scrolledwindow,
 messagedialog box,
 messagedialog grid {
     background: transparent;
