@@ -412,7 +412,7 @@ window.dialog button.suggested-action,
 popover.background button.suggested-action,
 .nautilus-window popover.background button.suggested-action {
     background-color: rgba(240, 240, 240, 0.25);
-    border-color: rgba(0, 0, 0, 1);;
+    border-color: rgba(0, 0, 0, 0.25);;
 }
 
 button.destructive-action,
