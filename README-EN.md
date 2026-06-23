@@ -70,6 +70,4 @@ GTK_DEBUG=interactive nautilus
 
 Press `Ctrl+Shift+D` or menu → Inspector to inspect CSS nodes live.
 
-## License
 
-MIT
