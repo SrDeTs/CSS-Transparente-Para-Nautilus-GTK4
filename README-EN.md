@@ -2,11 +2,26 @@
 
 Makes Nautilus (GNOME Files) transparent/glass with a frosted glass effect.
 
+## Screenshots
+
+| | | |
+|---|---|---|
+| ![Nautilus glass - main window](Assets/screenshot-2026-06-23_05-29-07.png) | ![Nautilus glass - dialog](Assets/screenshot-2026-06-23_05-29-13.png) | ![Nautilus glass - about](Assets/screenshot-2026-06-23_05-29-16.png) |
+| ![Nautilus glass - shortcuts](Assets/screenshot-2026-06-23_05-29-20.png) | ![Nautilus glass - preferences](Assets/screenshot-2026-06-23_05-29-23.png) | ![Nautilus glass - captions](Assets/screenshot-2026-06-23_05-29-30.png) |
+| ![Nautilus glass - columns](Assets/screenshot-2026-06-23_05-29-40.png) | ![Nautilus glass - context menu](Assets/screenshot-2026-06-23_05-29-43.png) | ![Nautilus glass - rename](Assets/screenshot-2026-06-23_05-29-46.png) |
+| ![Nautilus glass - trash menu](Assets/screenshot-2026-06-23_05-29-47.png) | ![Nautilus glass - filters](Assets/screenshot-2026-06-23_05-30-36.png) | ![Nautilus glass - tab menu](Assets/screenshot-2026-06-23_05-32-08.png) |
+
 ## Installation
 
 ```bash
-cp nautilus.css ~/.config/gtk-4.0/gtk.css
+cp nautilus.css ~/.config/gtk-4.0/nautilus.css
 nautilus -q && nautilus
+```
+
+Your `~/.config/gtk-4.0/gtk.css` should import the file:
+
+```css
+@import "nautilus.css";
 ```
 
 ## What becomes transparent
@@ -69,5 +84,4 @@ GTK_DEBUG=interactive nautilus
 ```
 
 Press `Ctrl+Shift+D` or menu → Inspector to inspect CSS nodes live.
-
 
