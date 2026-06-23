@@ -72,9 +72,7 @@ GTK_DEBUG=interactive nautilus
 
 Use `Ctrl+Shift+D` ou menu → Inspector para inspecionar nós CSS ao vivo.
 
-## Licença
 
-MIT
 
 ---
 
