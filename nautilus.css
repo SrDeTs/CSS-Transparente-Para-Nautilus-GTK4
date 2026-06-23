@@ -341,7 +341,6 @@ dialog.preferences row + row {
 window.dialog,
 messagedialog,
 window.messagedialog,
-.nautilus-window dialog,
 .nautilus-window messagedialog {
     background: transparent;
     background-color: transparent;
@@ -349,17 +348,30 @@ window.messagedialog,
 }
 
 /* AdwAlertDialog e AdwDialog: vidro no root node */
-dialog:not(.preferences) {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.55);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.06),
-        alpha(@window_bg_color, 0.04)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.15);
+dialog.alert,
+.nautilus-window dialog:not(.preferences) {
+    background-color: alpha(@window_bg_color, 0.25);
+    border: 1px solid alpha(@window_fg_color, 0.12);
     border-radius: 18px;
     box-shadow: 0 16px 46px rgba(0, 0, 0, 0.30);
+}
+
+/* Força transparência nos filhos que podem pintar fundo opaco */
+dialog.alert windowhandle,
+dialog.alert .message-area,
+dialog.alert .response-area,
+dialog.alert scrolledwindow,
+dialog.alert box {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+}
+
+/* Itens internos (labels, etc.) sem fundo */
+dialog.alert label,
+dialog.alert .body,
+dialog.alert .heading-bin {
+    background: transparent;
 }
 
 /* GtkDialog antigo: vidro no child contents */
