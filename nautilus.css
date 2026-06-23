@@ -524,18 +524,18 @@ placessidebar listbox,
 
 .nautilus-window tabbar tab:selected,
 .nautilus-window tabbar tab:checked {
-    background-color: alpha(@accent_color, 0.22);
-    border-color: alpha(@accent_color, 0.46);
+    background-color: alpha(@window_fg_color, 0.10);
+    border-color: alpha(@window_fg_color, 0.28);
     box-shadow:
-        inset 0 -3px @accent_bg_color,
-        0 8px 22px rgba(0, 0, 0, 0.22);
+        inset 0 -3px alpha(@window_fg_color, 0.72),
+        0 8px 18px rgba(0, 0, 0, 0.18);
     color: @window_fg_color;
 }
 
 .nautilus-window tabbar tab:selected:hover,
 .nautilus-window tabbar tab:checked:hover {
-    background-color: alpha(@accent_color, 0.28);
-    border-color: alpha(@accent_color, 0.58);
+    background-color: alpha(@window_fg_color, 0.14);
+    border-color: alpha(@window_fg_color, 0.36);
 }
 
 .nautilus-window tabbar tab:selected label,
@@ -547,6 +547,6 @@ placessidebar listbox,
 .nautilus-window tabbar tab indicator,
 .nautilus-window tabbar tabbox > revealer > indicator {
     min-height: 3px;
-    background: @accent_bg_color;
+    background: alpha(@window_fg_color, 0.72);
     border-radius: 999px;
 }
