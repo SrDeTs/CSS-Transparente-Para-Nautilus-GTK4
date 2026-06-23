@@ -4,11 +4,26 @@
 
 Torna o Nautilus (gerenciador de arquivos do GNOME) transparente/glass com efeito de vidro.
 
+## Capturas de tela
+
+| | | |
+|---|---|---|
+| ![Nautilus glass - janela principal](Assets/screenshot-2026-06-23_05-29-07.png) | ![Nautilus glass - dialogo](Assets/screenshot-2026-06-23_05-29-13.png) | ![Nautilus glass - sobre](Assets/screenshot-2026-06-23_05-29-16.png) |
+| ![Nautilus glass - atalhos](Assets/screenshot-2026-06-23_05-29-20.png) | ![Nautilus glass - preferencias](Assets/screenshot-2026-06-23_05-29-23.png) | ![Nautilus glass - legendas](Assets/screenshot-2026-06-23_05-29-30.png) |
+| ![Nautilus glass - colunas](Assets/screenshot-2026-06-23_05-29-40.png) | ![Nautilus glass - menu de contexto](Assets/screenshot-2026-06-23_05-29-43.png) | ![Nautilus glass - renomear](Assets/screenshot-2026-06-23_05-29-46.png) |
+| ![Nautilus glass - menu da lixeira](Assets/screenshot-2026-06-23_05-29-47.png) | ![Nautilus glass - filtros](Assets/screenshot-2026-06-23_05-30-36.png) | ![Nautilus glass - menu da aba](Assets/screenshot-2026-06-23_05-32-08.png) |
+
 ## Instalação
 
 ```bash
-cp nautilus.css ~/.config/gtk-4.0/gtk.css
+cp nautilus.css ~/.config/gtk-4.0/nautilus.css
 nautilus -q && nautilus
+```
+
+O `~/.config/gtk-4.0/gtk.css` deve importar o arquivo:
+
+```css
+@import "nautilus.css";
 ```
 
 ## O que fica transparente
