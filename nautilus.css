@@ -1,7 +1,8 @@
 /* ==========================================================
-   NAUTILUS — BASE TRANSPARENTE
+   NAUTILUS GTK4 GLASS
    ========================================================== */
 
+/* ---------- 1) Main window background ---------- */
 window.nautilus-window,
 window.background.nautilus-window,
 .nautilus-window,
@@ -25,168 +26,6 @@ window.background.nautilus-window,
 .nautilus-window flowbox,
 .nautilus-window statuspage,
 .nautilus-window .empty-view,
-#NautilusFileChooser {
-    background: transparent;
-    background-color: transparent;
-}
-
-/* ==========================================================
-   GLASS — BARRA SUPERIOR
-   ========================================================== */
-
-.nautilus-window headerbar,
-.nautilus-window .titlebar,
-.nautilus-window windowhandle {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.0),
-        alpha(@window_bg_color, 0.0)
-    );
-    border-bottom: 1px solid alpha(@window_fg_color, 0.0);
-    box-shadow: inset 0 -1px alpha(@window_bg_color, 0.0);
-}
-
-.nautilus-window headerbar button,
-.nautilus-window headerbar menubutton > button,
-.nautilus-window headerbar splitbutton > button {
-    background-color: alpha(@window_bg_color, 0.0);
-    border-color: alpha(@window_fg_color, 0.0);
-}
-
-.nautilus-window headerbar button:hover,
-.nautilus-window headerbar menubutton > button:hover,
-.nautilus-window headerbar splitbutton > button:hover {
-    background-color: alpha(@accent_color, 0.0);
-}
-
-/* ==========================================================
-   MENU DE CONTEXTO / POPOVER — BOTÃO DIREITO
-   ========================================================== */
-
-popover.background,
-popover.background.menu,
-.nautilus-window popover.background,
-.nautilus-window popover.background.menu {
-    background: transparent;
-    background-color: transparent;
-}
-
-popover.background > contents,
-popover.background.menu > contents,
-popover.menu > contents,
-.nautilus-window popover.background > contents,
-.nautilus-window popover.background.menu > contents,
-.nautilus-window popover.menu > contents {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.34);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.045),
-        alpha(@window_bg_color, 0.045)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.12);
-    border-radius: 14px;
-    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.38);
-    padding: 6px;
-}
-
-popover.background arrow,
-popover.background.menu arrow,
-.nautilus-window popover.background arrow,
-.nautilus-window popover.background.menu arrow {
-    background-color: alpha(@window_bg_color, 0.34);
-    border-color: alpha(@window_fg_color, 0.12);
-}
-
-popover.background modelbutton,
-popover.background.menu modelbutton,
-popover.background button,
-popover.background.menu button,
-popover.background row,
-popover.background.menu row,
-popover.background box,
-popover.background.menu box,
-popover.background label,
-popover.background.menu label,
-popover.background separator,
-popover.background.menu separator,
-.nautilus-window popover.background modelbutton,
-.nautilus-window popover.background.menu modelbutton,
-.nautilus-window popover.background button,
-.nautilus-window popover.background.menu button,
-.nautilus-window popover.background row,
-.nautilus-window popover.background.menu row,
-.nautilus-window popover.background box,
-.nautilus-window popover.background.menu box,
-.nautilus-window popover.background label,
-.nautilus-window popover.background.menu label,
-.nautilus-window popover.background separator,
-.nautilus-window popover.background.menu separator {
-    background: transparent;
-    background-color: transparent;
-}
-
-popover.background modelbutton:hover,
-popover.background.menu modelbutton:hover,
-popover.background button:hover,
-popover.background.menu button:hover,
-popover.background row:hover,
-popover.background.menu row:hover,
-.nautilus-window popover.background modelbutton:hover,
-.nautilus-window popover.background.menu modelbutton:hover,
-.nautilus-window popover.background button:hover,
-.nautilus-window popover.background.menu button:hover,
-.nautilus-window popover.background row:hover,
-.nautilus-window popover.background.menu row:hover {
-    background-color: alpha(@accent_color, 0.18);
-    border-radius: 8px;
-}
-
-popover.background separator,
-popover.background.menu separator,
-.nautilus-window popover.background separator,
-.nautilus-window popover.background.menu separator {
-    background-color: alpha(@window_fg_color, 0.30);
-    min-height: 1px;
-}
-
-/* ==========================================================
-   PATCH — SELECTIVE GLASS/BLUR
-   Ideia: janela principal 100% transparente;
-   apenas diálogos, popovers, propriedades, nova pasta e cards
-   recebem fundo semi-transparente para o compositor aplicar blur.
-
-   Cole no FINAL de ~/.config/gtk-4.0/gtk.css
-   ========================================================== */
-
-/* ---------- 1) Mantém a janela principal e as camadas grandes sem painel ---------- */
-window.nautilus-window,
-window.background.nautilus-window,
-.nautilus-window,
-.nautilus-window > *,
-.nautilus-window toolbarview,
-.nautilus-window overlay,
-.nautilus-window stack,
-.nautilus-window stack > *,
-.nautilus-window box,
-.nautilus-window widget,
-.nautilus-window viewport,
-.nautilus-window scrolledwindow,
-.nautilus-window .view,
-.nautilus-window .content-view,
-.nautilus-window .background,
-.nautilus-window .nautilus-grid-view,
-.nautilus-window .nautilus-list-view,
-.nautilus-window gridview,
-.nautilus-window listview,
-.nautilus-window columnview,
-.nautilus-window flowbox,
-.nautilus-window statuspage,
-.nautilus-window .empty-view,
-.nautilus-window navigation-sidebar,
-.nautilus-window .navigation-sidebar,
 .nautilus-window sidebar,
 #NautilusFileChooser {
     background: transparent;
@@ -195,7 +34,7 @@ window.background.nautilus-window,
     box-shadow: none;
 }
 
-/* Header/sidebar transparentes. O destaque do item selecionado continua visível. */
+/* ---------- 2) Headerbar / sidebar ---------- */
 .nautilus-window headerbar,
 .nautilus-window .titlebar,
 .nautilus-window windowhandle,
@@ -208,6 +47,20 @@ window.background.nautilus-window,
     background-image: none;
     box-shadow: none;
     border-color: transparent;
+}
+
+.nautilus-window headerbar button,
+.nautilus-window headerbar menubutton > button,
+.nautilus-window headerbar splitbutton > button {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+}
+
+.nautilus-window headerbar button:hover,
+.nautilus-window headerbar menubutton > button:hover,
+.nautilus-window headerbar splitbutton > button:hover {
+    background-color: alpha(@accent_color, 0.0);
 }
 
 .nautilus-window navigation-sidebar row:selected,
@@ -230,226 +83,7 @@ window.background.nautilus-window,
     border-radius: 10px;
 }
 
-/* ---------- 2) Remove o escurecimento geral atrás de diálogos ---------- */
-dimming,
-.nautilus-window dimming,
-.nautilus-window overlay > dimming {
-    background: transparent;
-    background-color: rgba(0, 0, 0, 0.06);
-}
-
-/* ---------- 3) Preferências: fundo grande transparente; blur só nos cards/listas ---------- */
-window.preferences,
-dialog.preferences,
-window.preferences > contents,
-dialog.preferences > contents,
-window.preferences clamp,
-dialog.preferences clamp,
-window.preferences leaflet,
-dialog.preferences leaflet,
-window.preferences navigationview,
-dialog.preferences navigationview,
-window.preferences navigationpage,
-dialog.preferences navigationpage,
-window.preferences preferencespage,
-dialog.preferences preferencespage,
-window.preferences scrolledwindow,
-dialog.preferences scrolledwindow,
-window.preferences viewport,
-dialog.preferences viewport,
-window.preferences stack,
-dialog.preferences stack,
-window.preferences box,
-dialog.preferences box {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-}
-
-/* Título e botão fechar da janela de preferências continuam legíveis, sem criar painel grande. */
-window.preferences headerbar,
-dialog.preferences headerbar,
-window.preferences windowhandle,
-dialog.preferences windowhandle {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-    border-color: transparent;
-}
-
-/* Estes são os blocos que você quer com “blur/glass” nas Preferências. */
-window.preferences preferencesgroup > box,
-dialog.preferences preferencesgroup > box,
-window.preferences list,
-dialog.preferences list,
-window.preferences list.boxed-list,
-dialog.preferences list.boxed-list,
-window.preferences .boxed-list,
-dialog.preferences .boxed-list,
-window.preferences .card,
-dialog.preferences .card {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.18);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.035),
-        alpha(@window_bg_color, 0.025)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.08);
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-}
-
-/* Linhas internas transparentes para não virar vários retângulos pretos. */
-window.preferences row,
-dialog.preferences row,
-window.preferences row.activatable,
-dialog.preferences row.activatable,
-window.preferences actionrow,
-dialog.preferences actionrow,
-window.preferences comborow,
-dialog.preferences comborow,
-window.preferences entryrow,
-dialog.preferences entryrow {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-    border-radius: 10px;
-}
-
-window.preferences row:hover,
-dialog.preferences row:hover,
-window.preferences row.activatable:hover,
-dialog.preferences row.activatable:hover {
-    background-color: alpha(@accent_color, 0.14);
-}
-
-/* Separadores finos dentro dos cards. */
-window.preferences separator,
-dialog.preferences separator,
-window.preferences row + row,
-dialog.preferences row + row {
-    border-color: alpha(@window_fg_color, 0.07);
-}
-
-/* ---------- 4) Diálogos pequenos: Lixeira, Nova pasta, renomear, avisos ---------- */
-/* AdwAlertDialog (lixeira) usa AdwDialog → CSS node: "dialog" (sem child "contents") */
-/* GtkDialog antigo usa: dialog > contents */
-/* Aplicamos o vidro diretamente no nó dialog */
-window.dialog,
-messagedialog,
-window.messagedialog,
-.nautilus-window messagedialog {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-/* AdwAlertDialog e AdwDialog: vidro no root node */
-dialog.alert,
-.nautilus-window dialog:not(.preferences) {
-    background-color: alpha(@window_bg_color, 0.05);
-    border: 1px solid alpha(@window_fg_color, 0.12);
-    border-radius: 18px;
-}
-
-/* Força transparência nos filhos que podem pintar fundo opaco */
-dialog.alert windowhandle,
-dialog.alert .message-area,
-dialog.alert .response-area,
-dialog.alert scrolledwindow,
-dialog.alert box {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-/* Itens internos (labels, etc.) sem fundo */
-dialog.alert label,
-dialog.alert .body,
-dialog.alert .heading-bin {
-    background: transparent;
-}
-
-/* GtkDialog antigo: vidro no child contents */
-window.dialog > contents,
-messagedialog > contents,
-window.messagedialog > contents,
-.nautilus-window dialog > contents,
-.nautilus-window messagedialog > contents {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.55);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.06),
-        alpha(@window_bg_color, 0.04)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.15);
-    border-radius: 18px;
-    box-shadow: 0 16px 46px rgba(0, 0, 0, 0.30);
-}
-
-/* Interior dos diálogos sem blocos opacos extras (exceto AdwAlertDialog que já usa o root) */
-window.dialog box,
-window.dialog grid,
-window.dialog centerbox,
-window.dialog stack,
-window.dialog clamp,
-window.dialog viewport,
-window.dialog scrolledwindow,
-messagedialog box,
-messagedialog grid {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-/* Botões dos diálogos: transparentes, com destaque só no próprio botão. */
-dialog button,
-window.dialog button,
-messagedialog button,
-window.messagedialog button,
-window.preferences button,
-dialog.preferences button,
-.nautilus-window dialog button {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.14);
-    background-image: none;
-    border: 1px solid alpha(@window_fg_color, 0.10);
-    border-radius: 10px;
-}
-
-dialog button:hover,
-window.dialog button:hover,
-messagedialog button:hover,
-window.messagedialog button:hover,
-window.preferences button:hover,
-dialog.preferences button:hover,
-.nautilus-window dialog button:hover {
-    background-color: alpha(@accent_color, 0.18);
-}
-
-button.suggested-action,
-dialog button.suggested-action,
-window.dialog button.suggested-action,
-.nautilus-window button.suggested-action,
-popover.background button.suggested-action,
-.nautilus-window popover.background button.suggested-action {
-    background-color: rgba(240, 240, 240, 0.25);
-    border-color: rgba(0, 0, 0, 0.25);
-}
-
-button.destructive-action,
-dialog button.destructive-action,
-window.dialog button.destructive-action,
-.nautilus-window button.destructive-action {
-    background-color: rgba(255, 80, 80, 0.30);
-    border-color: rgba(255, 130, 130, 0.38);
-}
-
-/* ---------- 5) Propriedades / popover de info: fundo glass só no popover e nos cards ---------- */
+/* ---------- 3) Popover / context menu ---------- */
 popover.background,
 popover.background.menu,
 .nautilus-window popover.background,
@@ -459,7 +93,6 @@ popover.background.menu,
     background-image: none;
 }
 
-/* Caixa externa do popover: vidro. */
 popover.background > contents,
 popover.background.menu > contents,
 popover.menu > contents,
@@ -487,7 +120,6 @@ popover.background.menu arrow,
     border-color: alpha(@window_fg_color, 0.10);
 }
 
-/* Remove preto dos containers internos do popover. */
 popover.background box,
 popover.background grid,
 popover.background stack,
@@ -518,27 +150,6 @@ popover.background.menu row,
     background-image: none;
 }
 
-/* Cards pretos do painel de Propriedades: pasta pai, datas, permissões etc. */
-popover.background list,
-popover.background list.boxed-list,
-popover.background .boxed-list,
-popover.background .card,
-.nautilus-window popover.background list,
-.nautilus-window popover.background list.boxed-list,
-.nautilus-window popover.background .boxed-list,
-.nautilus-window popover.background .card {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.18);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.035),
-        alpha(@window_bg_color, 0.025)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.08);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
 popover.background modelbutton:hover,
 popover.background.menu modelbutton:hover,
 popover.background button:hover,
@@ -561,11 +172,200 @@ popover.background.menu separator,
 .nautilus-window popover.background.menu separator {
     background-color: alpha(@window_fg_color, 0.22);
     min-height: 1px;
-    filter: blur(4px);
 }
 
-/* ---------- 6) Toast/barra inferior: só a pílula fica glass ---------- */
-.nautilus-window .floating-bar,
+popover.background entry,
+.nautilus-window popover.background entry {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.34);
+    background-image: none;
+    border: 1px solid alpha(@accent_color, 0.48);
+    border-radius: 8px;
+    color: @window_fg_color;
+}
+
+popover.background button.suggested-action,
+.nautilus-window popover.background button.suggested-action {
+    background-color: rgba(240, 240, 240, 0.25);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- 4) System dialogs ---------- */
+dimming,
+.nautilus-window dimming,
+.nautilus-window overlay > dimming {
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+dialog,
+aboutdialog,
+shortcutsdialog {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.24);
+    background-image: linear-gradient(
+        to bottom,
+        alpha(@window_fg_color, 0.055),
+        alpha(@window_bg_color, 0.035)
+    );
+    border: 1px solid alpha(@window_fg_color, 0.14);
+    border-radius: 18px;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.34);
+}
+
+dialog.alert,
+.nautilus-window dialog:not(.preferences) {
+    background-color: alpha(@window_bg_color, 0.26);
+    border-color: alpha(@window_fg_color, 0.16);
+}
+
+dialog.alert windowhandle,
+dialog.alert .message-area,
+dialog.alert .response-area,
+dialog.alert scrolledwindow,
+dialog.alert box,
+dialog.alert label,
+dialog.alert .body,
+dialog.alert .heading-bin {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+}
+
+window.dialog,
+messagedialog,
+window.messagedialog,
+.nautilus-window messagedialog {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+}
+
+window.dialog > contents,
+messagedialog > contents,
+window.messagedialog > contents,
+.nautilus-window messagedialog > contents {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.55);
+    background-image: linear-gradient(
+        to bottom,
+        alpha(@window_fg_color, 0.06),
+        alpha(@window_bg_color, 0.04)
+    );
+    border: 1px solid alpha(@window_fg_color, 0.15);
+    border-radius: 18px;
+    box-shadow: 0 16px 46px rgba(0, 0, 0, 0.30);
+}
+
+window.dialog box,
+window.dialog grid,
+window.dialog centerbox,
+window.dialog stack,
+window.dialog clamp,
+window.dialog viewport,
+window.dialog scrolledwindow,
+messagedialog box,
+messagedialog grid {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+}
+
+dialog button,
+window.dialog button,
+messagedialog button,
+window.messagedialog button,
+window.preferences button,
+dialog.preferences button {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.14);
+    background-image: none;
+    border: 1px solid alpha(@window_fg_color, 0.10);
+    border-radius: 10px;
+}
+
+dialog button:hover,
+window.dialog button:hover,
+messagedialog button:hover,
+window.messagedialog button:hover,
+window.preferences button:hover,
+dialog.preferences button:hover {
+    background-color: alpha(@accent_color, 0.18);
+}
+
+dialog button.suggested-action,
+window.dialog button.suggested-action {
+    background-color: rgba(240, 240, 240, 0.25);
+    border-color: rgba(0, 0, 0, 0.25);
+}
+
+dialog button.destructive-action,
+window.dialog button.destructive-action {
+    background-color: rgba(255, 80, 80, 0.30);
+    border-color: rgba(255, 130, 130, 0.38);
+}
+
+dialog entry,
+window.dialog entry {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.34);
+    background-image: none;
+    border: 1px solid alpha(@accent_color, 0.48);
+    border-radius: 8px;
+    color: @window_fg_color;
+}
+
+/* ---------- 5) Properties popover / glass cards ---------- */
+popover.background list,
+popover.background list.boxed-list,
+popover.background .boxed-list,
+popover.background .card,
+.nautilus-window popover.background list,
+.nautilus-window popover.background list.boxed-list,
+.nautilus-window popover.background .boxed-list,
+.nautilus-window popover.background .card,
+window.preferences preferencesgroup > box,
+dialog.preferences preferencesgroup > box,
+window.preferences list,
+dialog.preferences list,
+window.preferences list.boxed-list,
+dialog.preferences list.boxed-list,
+window.preferences .boxed-list,
+dialog.preferences .boxed-list,
+window.preferences .card,
+dialog.preferences .card,
+dialog preferencesgroup > box,
+dialog list.boxed-list,
+dialog .boxed-list,
+dialog .card,
+shortcutsdialog list,
+shortcutsdialog list.boxed-list,
+shortcutsdialog .boxed-list,
+shortcutsdialog .card,
+aboutdialog list,
+aboutdialog list.boxed-list,
+aboutdialog .boxed-list,
+aboutdialog .card {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.20);
+    background-image: linear-gradient(
+        to bottom,
+        alpha(@window_fg_color, 0.04),
+        alpha(@window_bg_color, 0.03)
+    );
+    border: 1px solid alpha(@window_fg_color, 0.10);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+}
+
+window.preferences separator,
+dialog.preferences separator,
+window.preferences row + row,
+dialog.preferences row + row {
+    border-color: alpha(@window_fg_color, 0.07);
+}
+
+/* ---------- 6) Toast / floating bar ---------- */
 .nautilus-window actionbar,
 .nautilus-window revealer,
 .nautilus-window toastoverlay,
@@ -584,18 +384,41 @@ toast {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* ==========================================================
-   7) Adw.Dialog — Propriedades, Sobre, Atalhos, Legendas
-   Estes NÃO são popovers — são AdwDialog com CSS node "dialog".
-   ========================================================== */
+/* ---------- 7) AdwDialog / preferences / about / shortcuts / sidebar / tabbar ---------- */
+window.preferences,
+dialog.preferences {
+    background: transparent;
+    background-color: alpha(@window_bg_color, 0.14);
+    background-image: linear-gradient(
+        to bottom,
+        alpha(@window_fg_color, 0.035),
+        alpha(@window_bg_color, 0.025)
+    );
+    border: 1px solid alpha(@window_fg_color, 0.10);
+    border-radius: 18px;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.26);
+}
 
-/* O dimmer atrás do diálogo já é coberto pelo dimming acima. */
-
-/* Diálogos Adw.Dialog (Propriedades etc.) — base transparente */
-dialog,
-dialog > surface,
-dialog > surface > body,
-dialog > surface > header,
+window.preferences > contents,
+dialog.preferences > contents,
+window.preferences clamp,
+dialog.preferences clamp,
+window.preferences leaflet,
+dialog.preferences leaflet,
+window.preferences navigationview,
+dialog.preferences navigationview,
+window.preferences navigationpage,
+dialog.preferences navigationpage,
+window.preferences preferencespage,
+dialog.preferences preferencespage,
+window.preferences scrolledwindow,
+dialog.preferences scrolledwindow,
+window.preferences viewport,
+dialog.preferences viewport,
+window.preferences stack,
+dialog.preferences stack,
+window.preferences box,
+dialog.preferences box,
 dialog overlay,
 dialog navigationview,
 dialog navigationpage,
@@ -609,47 +432,7 @@ dialog viewport,
 dialog scrolledwindow,
 dialog clamp,
 dialog box,
-dialog widget {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-    
-}
-
-/* Cards glass nos Adw.Dialog (Propriedades: Pasta pai, Modificado, etc.) */
-dialog preferencesgroup > box,
-dialog list.boxed-list,
-dialog .boxed-list,
-dialog .card {
-    background: transparent;
-    background-color: alpha(@window_bg_color, 0.18);
-    background-image: linear-gradient(
-        to bottom,
-        alpha(@window_fg_color, 0.035),
-        alpha(@window_bg_color, 0.025)
-    );
-    border: 1px solid alpha(@window_fg_color, 0.08);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* Linhas internas transparentes nos diálogos */
-dialog row,
-dialog actionrow,
-dialog comborow,
-dialog entryrow {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-dialog row:hover {
-    background-color: alpha(@accent_color, 0.14);
-}
-
-/* ---------- AboutDialog (AdwAboutDialog) ---------- */
-aboutdialog,
+dialog widget,
 aboutdialog > *,
 aboutdialog box,
 aboutdialog scrolledwindow,
@@ -658,14 +441,7 @@ aboutdialog stack,
 aboutdialog toolbarview,
 aboutdialog headerbar,
 aboutdialog clamp,
-aboutdialog label {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-/* ---------- ShortcutsDialog (AdwShortcutsDialog) ---------- */
-shortcutsdialog,
+aboutdialog label,
 shortcutsdialog > *,
 shortcutsdialog box,
 shortcutsdialog scrolledwindow,
@@ -674,29 +450,57 @@ shortcutsdialog stack {
     background: transparent;
     background-color: transparent;
     background-image: none;
+    box-shadow: none;
 }
 
-/* ---------- Sidebar: placessidebar é o CSS node do NautilusSidebar ---------- */
-placessidebar,
-placessidebar > *,
-placessidebar scrolledwindow,
-placessidebar listbox {
-    background: transparent;
-    background-color: transparent;
-    background-image: none;
-}
-
-/* ---------- ToolbarView + SplitView containers ---------- */
-.nautilus-window toolbarview,
-.nautilus-window splitview,
-.nautilus-window leaflet {
+window.preferences headerbar,
+dialog.preferences headerbar,
+window.preferences windowhandle,
+dialog.preferences windowhandle,
+dialog windowhandle,
+aboutdialog windowhandle,
+shortcutsdialog windowhandle {
     background: transparent;
     background-color: transparent;
     background-image: none;
     box-shadow: none;
+    border-color: transparent;
 }
 
-/* ---------- TabBar (AdwTabBar) ---------- */
+window.preferences row,
+dialog.preferences row,
+window.preferences row.activatable,
+dialog.preferences row.activatable,
+window.preferences actionrow,
+dialog.preferences actionrow,
+window.preferences comborow,
+dialog.preferences comborow,
+window.preferences entryrow,
+dialog.preferences entryrow,
+dialog row,
+dialog actionrow,
+dialog comborow,
+dialog entryrow {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 10px;
+}
+
+window.preferences row:hover,
+dialog.preferences row:hover,
+window.preferences row.activatable:hover,
+dialog.preferences row.activatable:hover,
+dialog row:hover {
+    background-color: alpha(@accent_color, 0.14);
+}
+
+placessidebar,
+placessidebar > *,
+placessidebar scrolledwindow,
+placessidebar listbox,
+.nautilus-window splitview,
+.nautilus-window leaflet,
 .nautilus-window tabbar,
 .nautilus-window tabbar > *,
 .nautilus-window tabbar tab,
