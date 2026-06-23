@@ -1,12 +1,3 @@
-/*
- * gtk.css — Nautilus GTK4 transparente/glass
- * Coloque em: ~/.config/gtk-4.0/gtk.css
- * Depois rode: nautilus -q && nautilus
- *
- * Observação: GTK CSS não tem backdrop-filter como CSS web.
- * Este arquivo simula blur/glass com transparência, gradiente, borda e sombra.
- */
-
 /* ==========================================================
    NAUTILUS — BASE TRANSPARENTE
    ========================================================== */
@@ -417,9 +408,11 @@ dialog.preferences button:hover,
 button.suggested-action,
 dialog button.suggested-action,
 window.dialog button.suggested-action,
-.nautilus-window button.suggested-action {
-    background-color: alpha(@accent_color, 0.30);
-    border-color: alpha(@accent_color, 0.38);
+.nautilus-window button.suggested-action,
+popover.background button.suggested-action,
+.nautilus-window popover.background button.suggested-action {
+    background-color: rgba(240, 240, 240, 0.25);
+    border-color: rgba(0, 0, 0, 1);;
 }
 
 button.destructive-action,
